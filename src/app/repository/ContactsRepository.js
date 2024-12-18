@@ -46,18 +46,38 @@ class ContactaRepository{
   create({
     name, email, phone, category_id
   }){
-    return new Promise((resolve) => {
-      const newContact = {
-        id: uuid(),
-        name,
-        email,
-        phone,
-        category_id,
-      };
+      return new Promise((resolve) => {
+        const newContact = {
+          id: uuid(),
+          name,
+          email,
+          phone,
+          category_id,
+        };
 
-      contacts.push(newContact);
-      resolve(newContact);
-  });
+        contacts.push(newContact);
+        resolve(newContact);
+    });
+  }
+
+  update(id, {
+    name, email, phone, category_id
+  }){
+      return new Promise((resolve) => {
+        const updatedContact = {
+          id,
+          name,
+          email,
+          phone,
+          category_id,
+        };
+
+        contacts.map((contact) => (
+          contact.id === id ? updatedContact : contact
+        ));
+
+        resolve(updatedContact);
+    });
   }
 
   delete(id){
