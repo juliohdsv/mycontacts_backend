@@ -1,9 +1,9 @@
 import express from "express";
 
+import routes from "./routes/main.routes";
+
 const  app = express();
 
-app.use("/", (request, response) => {
-  response.send({ ok: true});
-});
+app.use(routes);
 
 app.listen(3333, ()=> console.log("Server running"));
