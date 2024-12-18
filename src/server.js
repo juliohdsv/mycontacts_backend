@@ -1,8 +1,8 @@
 import express from "express";
 
-import routes from "./routes/main.routes";
+import routes from "./routes/main.route.js";
 
-const  app = express();
+const app = express();
 
 app.use(routes);
 
